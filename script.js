@@ -24,21 +24,38 @@ function initData() {
     }
 }
 
-// ABRIR CONVITE (COM SELO)
+// ABRIR CONVITE (COM SELO) - CORRIGIDO
 function unlockWedding() {
+    console.log("Função unlockWedding chamada!"); // Para debug
     const overlay = document.getElementById('opening-overlay');
     const mainContent = document.getElementById('main-content');
     
-    overlay.style.opacity = '0';
-    setTimeout(() => {
-        overlay.style.display = 'none';
-        mainContent.style.display = 'block';
-        document.body.style.overflow = 'auto';
-    }, 1000);
+    if (overlay) {
+        // Esconder o overlay
+        overlay.style.transition = "opacity 1s ease-in-out";
+        overlay.style.opacity = "0";
+        
+        setTimeout(function() {
+            overlay.style.display = "none";
+            if (mainContent) {
+                mainContent.style.display = "block";
+                document.body.style.overflow = "auto";
+            }
+            console.log("Convite aberto com sucesso!");
+        }, 1000);
+    } else {
+        console.log("Overlay não encontrado!");
+    }
     
+    // Tentar tocar música
     const song = document.getElementById('wedding-song');
-    song.play().catch(e => console.log("Auto-play bloqueado"));
+    if (song) {
+        song.play().catch(function(e) {
+            console.log("Auto-play bloqueado pelo navegador: " + e);
+        });
+    }
     
+    // Inicializar dados
     initData();
     carregarMensagens();
 }

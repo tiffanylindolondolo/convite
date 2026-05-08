@@ -246,5 +246,51 @@
     </div>
 
     <script src="script.js"></script>
+    <!-- SCRIPT DE FALLBACK PARA GARANTIR QUE O CONVITE ABRE -->
+<script>
+    // Forçar que a função esteja disponível de várias formas
+    (function() {
+        // Aguardar o DOM carregar completamente
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("DOM carregado - procurando selo...");
+            
+            // Tentar encontrar o selo de várias formas
+            var selo = document.querySelector('.wax-seal');
+            var envelope = document.querySelector('.envelope');
+            var envelopeContainer = document.querySelector('.envelope-container');
+            
+            // Função que abre o convite
+            function forcarAbertura() {
+                console.log("Clique detectado - abrindo convite");
+                var overlay = document.getElementById('opening-overlay');
+                var mainContent = document.getElementById('main-content');
+                
+                if (overlay) {
+                    overlay.style.transition = "opacity 1s ease-in-out";
+                    overlay.style.opacity = "0";
+                    setTimeout(function() {
+                        overlay.style.display = "none";
+                        if (mainContent) mainContent.style.display = "block";
+                    }, 1000);
+                }
+                
+                var song = document.getElementById('wedding-song');
+                if (song) song.play().catch(function(e) {});
+            }
+            
+            // Adicionar eventos a todos os elementos clicáveis
+            if (selo) {
+                selo.addEventListener('click', forcarAbertura);
+                console.log("Evento adicionado ao selo");
+            }
+            if (envelope) {
+                envelope.addEventListener('click', forcarAbertura);
+            }
+            if (envelopeContainer) {
+                envelopeContainer.addEventListener('click', forcarAbertura);
+            }
+        });
+    })();
+</script>
 </body>
 </html>
