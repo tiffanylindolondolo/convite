@@ -1,11 +1,14 @@
 /* --- CONFIGURAÇÕES GERAIS E VARIÁREIS --- */
 :root {
     --gold: #D4AF37;
+    --gold-light: #F3E5AB;
     --rose: #E2B4BD;
+    --rose-dark: #C89AA3;
     --dark: #4A4A4A;
     --cream: #FDFBF9;
     --white: #FFFFFF;
     --success: #25D366;
+    --shadow: 0 10px 40px rgba(0,0,0,0.1);
 }
 
 * { 
@@ -23,10 +26,9 @@ body {
 
 /* --- AJUSTE DE ESPAÇOS E SEÇÕES --- */
 .slide {
-    min-height: auto; /* Remove o vácuo de 100vh se o conteúdo for pequeno */
-    padding: 60px 20px;
+    padding: 80px 20px;
     width: 100%;
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -36,79 +38,792 @@ body {
 
 .bg-cream { background: var(--cream); }
 
-/* --- ABERTURA (ENVELOPE) --- */
+/* --- ENVELOPE DE ABERTURA --- */
 #opening-overlay {
-    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-    background: var(--rose); z-index: 10000; display: flex; align-items: center; justify-content: center;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh;
+    background: linear-gradient(135deg, var(--rose) 0%, var(--rose-dark) 100%);
+    z-index: 10000; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
     transition: transform 1.2s cubic-bezier(0.7, 0, 0.3, 1);
 }
+
+.envelope-container {
+    text-align: center;
+    position: relative;
+}
+
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background: #FFF8F0;
+    border-radius: 8px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.envelope:hover {
+    transform: translateY(-5px);
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: #FFF0E0;
+    border-radius: 8px 8px 0 0;
+    clip-path: polygon(0 0, 100% 0, 50% 60%, 0% 0%);
+    transition: all 0.3s;
+}
+
+.envelope-body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: #FFF8F0;
+    border-radius: 0 0 8px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .wax-seal {
-    width: 150px; height: 150px; background: #9B2226; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3); cursor: pointer; border: 4px solid #801418;
+    width: 80px;
+    height: 80px;
+    background: #9B2226;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    cursor: pointer;
+    border: 3px solid #C9787E;
+    transition: transform 0.3s;
+    position: relative;
+    z-index: 2;
+}
+
+.wax-seal:hover {
+    transform: scale(1.05);
+}
+
+.seal-initials {
+    font-family: 'Great Vibes', cursive;
+    font-size: 28px;
+    color: var(--gold);
+    letter-spacing: 4px;
+}
+
+.tap-text {
+    margin-top: 25px;
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+    font-size: 14px;
+    opacity: 0.9;
 }
 
 /* --- TÍTULOS E TEXTOS --- */
-.main-names { font-family: 'Great Vibes', cursive; font-size: clamp(50px, 8vw, 90px); color: var(--gold); }
-.section-title { font-family: 'Cinzel'; font-size: 24px; color: var(--gold); margin-bottom: 30px; letter-spacing: 3px; }
-.gold-divider { height: 2px; width: 60px; background: var(--gold); margin: 15px auto; }
+.hero-slide {
+    min-height: 100vh;
+    justify-content: center;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('fundo.jpg');
+    background-size: cover;
+    background-position: center;
+}
 
-/* --- FOTOS DOS LOCAIS (IGREJA E SALÃO) --- */
-/* Resolvemos aqui o tamanho ideal para ambas as fotos */
+.subtitle {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 4px;
+    color: var(--gold);
+    font-size: 14px;
+}
+
+.main-names { 
+    font-family: 'Great Vibes', cursive; 
+    font-size: clamp(50px, 8vw, 90px); 
+    color: var(--gold); 
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    margin: 20px 0;
+}
+
+.date-hero {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 3px;
+    color: var(--white);
+}
+
+.section-title { 
+    font-family: 'Cinzel'; 
+    font-size: 28px; 
+    color: var(--gold); 
+    margin-bottom: 20px; 
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.gold-divider { 
+    height: 2px; 
+    width: 80px; 
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 20px auto;
+}
+
+.great-vibes-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+    color: var(--rose-dark);
+}
+
+/* --- FOTO DOS NOIVOS (RESPONSIVA) --- */
+.story-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    width: 100%;
+    align-items: center;
+}
+
+.story-foto {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    min-height: 500px;
+    object-fit: cover;
+    border: 2px solid var(--gold);
+    padding: 10px;
+    background: white;
+    border-radius: 8px;
+}
+
+.story-text-wrapper p {
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* Responsivo: Muda para coluna no celular */
+@media (max-width: 768px) {
+    .story-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .story-foto {
+        max-width: 100%;
+        min-height: 350px;
+    }
+}
+
+/* --- CONFIRMAÇÃO DE PRESENÇA --- */
+.confirmation-section {
+    background: linear-gradient(135deg, var(--cream) 0%, #FFF5F0 100%);
+}
+
+.confirmation-wrapper {
+    text-align: center;
+    max-width: 700px;
+}
+
+.confirmation-message {
+    font-size: 18px;
+    line-height: 1.8;
+    margin: 20px 0 30px;
+    color: var(--dark);
+}
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--success);
+    color: white;
+    padding: 15px 35px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s;
+    margin: 20px 0;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.small-note {
+    font-size: 12px;
+    color: #999;
+    margin-top: 15px;
+}
+
+/* --- BOTÕES DE DETALHES DAS CERIMÓNIAS --- */
+.ceremony-card {
+    width: 100%;
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+}
+
+.ceremony-preview {
+    text-align: center;
+    padding: 20px;
+}
+
+.ceremony-preview p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.btn-details {
+    background: transparent;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    padding: 10px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn-details:hover {
+    background: var(--gold);
+    color: var(--white);
+}
+
+.hidden {
+    display: none;
+}
+
+.ceremony-full-details {
+    margin-top: 30px;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- FOTOS DOS LOCAIS --- */
 .info-grid { 
     display: grid; 
     grid-template-columns: 1fr 1fr; 
     gap: 30px; 
     width: 100%; 
     align-items: center; 
-    margin-top: 20px;
 }
-
-.info-grid.reverse { direction: rtl; }
-.info-grid.reverse .info-details { direction: ltr; }
 
 .info-image img { 
     width: 100%; 
-    max-width: 550px; /* Limite para a foto da igreja não ocupar tudo */
-    height: 350px;    /* Altura fixa equilibrada para igreja e salão */
+    height: 300px; 
     object-fit: cover; 
-    border: 1px solid var(--rose); 
-    padding: 8px; 
-    background: white;
-    border-radius: 4px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
 }
 
-/* --- FOTO DOS NOIVOS (HISTÓRIA) --- */
-.story-container {
+.info-details h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--rose-dark);
+    margin-bottom: 15px;
+}
+
+.time-info {
+    margin: 10px 0;
+    font-weight: 600;
+}
+
+.map-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* --- CONTAGEM DECRESCENTE (VERSÃO ELEGANTE) --- */
+.countdown-section {
+    background: linear-gradient(135deg, var(--cream) 0%, #FFF5F0 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.countdown-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212,175,55,0.03) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.countdown-wrapper {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.countdown-subtitle {
+    font-family: 'Great Vibes', cursive;
+    font-size: 28px;
+    color: var(--rose-dark);
+    margin-bottom: 10px;
+}
+
+.countdown-date {
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    color: var(--gold);
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+}
+
+#countdown-timer {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+
+.time-unit {
+    text-align: center;
+    min-width: 110px;
+    padding: 25px 15px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(212,175,55,0.2);
+    position: relative;
+}
+
+.time-unit:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(212,175,55,0.15);
+    border-color: var(--gold);
+}
+
+.time-unit span {
+    font-size: 52px;
+    font-weight: 300;
+    font-family: 'Cinzel', serif;
+    color: var(--rose-dark);
+    display: block;
+    line-height: 1;
+    margin-bottom: 10px;
+    transition: transform 0.2s ease;
+}
+
+.time-unit p {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gold);
+    font-weight: 600;
+    margin: 0;
+}
+
+.time-unit.secondary span {
+    color: var(--gold);
+}
+
+.countdown-decoration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.countdown-decoration .line {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.countdown-decoration .dot {
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+}
+
+/* --- MURAL --- */
+.subtitle-mural {
+    color: #999;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 40px;
+}
+
+.modern-input, .modern-textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #E0D0C8;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s;
+}
+
+.modern-input:focus, .modern-textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+}
+
+.modern-textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--gold), #C19B2E);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+.mural-lista {
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.msg-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid var(--gold);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* --- LISTA DE PRESENTES (ESTILO CARD) --- */
+.gift-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
     width: 100%;
+    margin-top: 30px;
 }
 
-.story-foto {
-    width: 100%;
-    max-width: 450px;
-    height: 500px; /* Altura elegante para o PC */
-    object-fit: cover;
-    border: 1px solid var(--rose);
-    padding: 10px;
+.gift-card {
     background: white;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
 }
 
-/* --- MURAL DE MENSAGENS --- */
-.form-container { width: 100%; max-width: 500px; margin-bottom: 30px; }
-
-.modern-textarea { 
-    width: 100%; height: 80px; padding: 12px; margin: 10px 0; 
-    border: 1px solid var(--rose); font-family: 'Montserrat';
-    resize: none;
+.gift-card:hover {
+    transform: translateY(-5px);
 }
 
-.mural-lista { 
-    width: 100%; max-width: 600px; 
-    display: flex; flex-direction: column; gap: 15px; 
+.gift-card h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: var(--dark);
 }
 
-.msg-card { 
-    background: white; padding: 15px; border-left: 5
+.price-highlight {
+    color: var(--gold);
+    font-size: 22px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.gift-card button {
+    background: var(--rose);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.gift-card button:hover {
+    background: var(--rose-dark);
+}
+
+.gift-card .reservado {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* --- MODAL --- */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 10001;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 450px;
+    width: 90%;
+    position: relative;
+    text-align: center;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #999;
+}
+
+.modal-close:hover {
+    color: var(--dark);
+}
+
+.modal-form input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #E0D0C8;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.btn-confirm, .btn-cancel {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn-confirm {
+    background: var(--success);
+    color: white;
+}
+
+.btn-confirm:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.btn-cancel {
+    background: #ccc;
+    color: var(--dark);
+}
+
+.btn-cancel:hover {
+    background: #bbb;
+}
+
+/* --- FOOTER --- */
+.footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--rose);
+    color: white;
+}
+
+.footer-names {
+    font-family: 'Great Vibes', cursive;
+    font-size: 32px;
+    margin: 10px 0;
+}
+
+.footer-date {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+/* --- RESPONSIVO PARA CELULAR --- */
+@media (max-width: 768px) {
+    .slide {
+        padding: 50px 20px;
+    }
+    
+    .section-title {
+        font-size: 22px;
+    }
+    
+    .great-vibes-title {
+        font-size: 36px;
+    }
+    
+    .time-unit {
+        min-width: 70px;
+        padding: 15px 10px;
+    }
+    
+    .time-unit span {
+        font-size: 32px;
+    }
+    
+    .time-unit p {
+        font-size: 10px;
+    }
+    
+    #countdown-timer {
+        gap: 15px;
+    }
+    
+    .countdown-subtitle {
+        font-size: 22px;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .info-image img {
+        height: 250px;
+    }
+    
+    .gift-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* --- ESTILOS ADICIONAIS PARA A LISTA DE PRESENTES --- */
+#btnMostrarLista {
+    max-width: 300px;
+    margin: 20px auto;
+    font-size: 16px;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, var(--gold), #C19B2E);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+#btnMostrarLista:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+#container-lista-presentes {
+    width: 100%;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gift-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.gift-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+}
+
+.gift-card:hover {
+    transform: translateY(-5px);
+}
+
+.gift-card h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: var(--dark);
+}
+
+.price-highlight {
+    color: var(--gold);
+    font-size: 22px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.gift-card button {
+    background: var(--rose);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.gift-card button:hover {
+    background: var(--rose-dark);
+    transform: scale(1.05);
+}
+
+.gift-card .reservado {
+    color: #e74c3c;
+    font-weight: bold;
+    margin-top: 10px;
+}

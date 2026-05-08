@@ -10,11 +10,16 @@
 <body>
 
     <div id="opening-overlay">
-        <div class="envelope-wrapper">
-            <div class="wax-seal" onclick="unlockWedding()">
-                <span class="seal-initials">K&N</span>
+        <div class="envelope-container">
+            <div class="envelope">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body">
+                    <div class="wax-seal" onclick="unlockWedding()">
+                        <span class="seal-initials">K&nbsp;&nbsp;N</span>
+                    </div>
+                </div>
             </div>
-            <p class="tap-text">Toque no selo para abrir</p>
+            <p class="tap-text">Toque no selo para abrir o convite</p>
         </div>
     </div>
 
@@ -22,6 +27,7 @@
         <source src="sua-musica.mp3" type="audio/mpeg">
     </audio>
 
+    <!-- Hero Section -->
     <section class="slide hero-slide">
         <div class="hero-content">
             <p class="subtitle">VAMOS CASAR</p>
@@ -31,93 +37,179 @@
         </div>
     </section>
 
+    <!-- Nossa História -->
     <section class="slide bg-cream">
         <div class="story-container">
             <div class="story-foto-wrapper">
-                <img src="Karen.jpeg" alt="Os Noivos" class="story-foto">
+                <img src="Karen.jpeg" alt="Karen e Neques" class="story-foto">
             </div>
             <div class="story-text-wrapper">
                 <h2 class="great-vibes-title">Nossa História</h2>
-                <div class="gold-divider" style="margin: 15px auto;"></div>
-                <p>Aqui podes descrever a vossa trajetória. Um momento especial que queiram partilhar com os convidados.</p>
+                <div class="gold-divider" style="margin: 15px 0;"></div>
+                <p>O amor não se encontra, ele constrói-se. E nós construímos o nosso tijolo a tijolo, sorriso a sorriso, sonho a sonho. Desde o primeiro olhar que algo nos dizia que este dia chegaria. Cada momento partilhado foi um passo em direcção a este altar, onde hoje celebramos não apenas o nosso amor, mas a promessa de uma vida inteira juntos.</p>
                 <br>
-                
+                <p><strong>E porque esta história só faz sentido se for partilhada com quem amamos,</strong> nada nos deixa mais felizes do que ter você ao nosso lado neste dia tão especial.</p>
             </div>
         </div>
     </section>
 
-    <div class="story-text-wrapper">
-    <h2 class="great-vibes-title">Nossa História</h2>
-    <p>Aqui podes descrever a vossa trajetória...</p>
-    <a href="https://wa.me/258827142762" target="_blank" class="btn-whatsapp">
-        CONFIRMAR PRESENÇA VIA WHATSAPP
-    </a>
-</div>
+    <!-- Confirmação de Presença -->
+    <section class="slide confirmation-section">
+        <div class="confirmation-wrapper">
+            <h2 class="section-title">A Sua Presença é o Nosso Melhor Presente</h2>
+            <div class="gold-divider"></div>
+            <p class="confirmation-message">Queremos muito celebrar este momento consigo! Por favor, confirme a sua presença até ao dia <strong>27 de Outubro de 2026</strong> para que possamos preparar tudo com todo o carinho.</p>
+            <a href="https://wa.me/258827142762?text=Olá!%20Confirmo%20minha%20presença%20no%20casamento%20de%20Karen%20e%20Neques!" target="_blank" class="btn-whatsapp">
+                📱 CONFIRMAR PRESENÇA VIA WHATSAPP
+            </a>
+            <p class="small-note">Clique no botão acima e envie-nos uma mensagem com o seu nome e o número de acompanhantes.</p>
+        </div>
+    </section>
 
+    <!-- Cerimónia Religiosa -->
     <section class="slide">
-        <h2 class="section-title">Cerimónia Religiosa</h2>
-        <div class="info-grid">
-            <div class="info-image"><img src="igreja.jpg"></div>
-            <div class="info-details">
-                <h3>Catedral de Maputo</h3>
-                <p class="time-info">🕒 15:30 Horas</p>
-                <p>Início da nossa união perante Deus.</p>
-                <a href="URL_MAPS_AQUI" target="_blank" class="map-link">Ver Localização</a>
+        <div class="ceremony-card">
+            <h2 class="section-title">Cerimónia Religiosa</h2>
+            <div class="ceremony-details" id="cerimonia-religiosa">
+                <div class="ceremony-preview">
+                    <p>🕊️ União abençoada por Deus</p>
+                    <button class="btn-details" onclick="toggleDetails('religiosa')">Ver Detalhes</button>
+                </div>
+                <div class="ceremony-full-details hidden" id="details-religiosa">
+                    <div class="info-grid">
+                        <div class="info-image">
+                            <img src="igreja.jpg" alt="Catedral de Maputo">
+                        </div>
+                        <div class="info-details">
+                            <h3>Catedral de Maputo</h3>
+                            <p class="time-info">📅 27 de Novembro de 2026</p>
+                            <p class="time-info">🕒 15:30 Horas</p>
+                            <p>A cerimónia terá início pontualmente às 15h30. Pedimos que esteja presente até às 15h15 para que possamos começar este momento especial todos reunidos.</p>
+                            <p><strong>Código de vestimenta:</strong> Formal / Social</p>
+                            <a href="https://maps.google.com/?q=Catedral+de+Maputo" target="_blank" class="map-link">📍 Ver Localização no Mapa</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Cerimónia Civil & Festa -->
     <section class="slide bg-cream">
-        <h2 class="section-title">Cerimónia Civil & Festa</h2>
-        <div class="info-grid reverse">
-            <div class="info-details">
-                <h3>Polana Serena Hotel</h3>
-                <p class="time-info">🕒 18:30 Horas</p>
-                <p>Jantar e celebração no Salão Nobre.</p>
-                <a href="URL_MAPS_AQUI" target="_blank" class="map-link">Ver Localização</a>
+        <div class="ceremony-card">
+            <h2 class="section-title">Cerimónia Civil & Festa</h2>
+            <div class="ceremony-details" id="cerimonia-civil">
+                <div class="ceremony-preview">
+                    <p>🎉 Celebração, Jantar e Muita Alegria</p>
+                    <button class="btn-details" onclick="toggleDetails('civil')">Ver Detalhes</button>
+                </div>
+                <div class="ceremony-full-details hidden" id="details-civil">
+                    <div class="info-grid">
+                        <div class="info-image">
+                            <img src="festa.jpg" alt="Polana Serena Hotel">
+                        </div>
+                        <div class="info-details">
+                            <h3>Polana Serena Hotel - Salão Nobre</h3>
+                            <p class="time-info">📅 27 de Novembro de 2026</p>
+                            <p class="time-info">🕒 18:30 Horas</p>
+                            <p>Após a cerimónia religiosa, convidamo-lo a juntar-se a nós para um coquetel de boas-vindas, seguido de jantar, dança e celebração até tardinha!</p>
+                            <p><strong>Código de vestimenta:</strong> Traje Passeio / Social</p>
+                            <a href="https://maps.google.com/?q=Polana+Serena+Hotel+Maputo" target="_blank" class="map-link">📍 Ver Localização no Mapa</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="info-image"><img src="festa.jpg"></div>
         </div>
     </section>
 
-    <section class="slide">
-        <h2 class="section-title">A Contagem Decrescente</h2>
-        <div id="countdown-timer">
-            <div class="time-unit"><span id="days">00</span><p>Dias</p></div>
-            <div class="time-unit"><span id="hours">00</span><p>Horas</p></div>
-            <div class="time-unit"><span id="minutes">00</span><p>Minutos</p></div>
-            <div class="time-unit secondary"><span id="seconds">00</span><p>Segundos</p></div>
+    <!-- Contagem Decrescente -->
+    <section class="slide countdown-section">
+        <div class="countdown-wrapper">
+            <h2 class="section-title">A Contagem Decrescente</h2>
+            <div class="gold-divider"></div>
+            <p class="countdown-subtitle">Faltam apenas...</p>
+            <p class="countdown-date">27 DE NOVEMBRO DE 2026</p>
+            
+            <div id="countdown-timer">
+                <div class="time-unit">
+                    <span id="days">00</span>
+                    <p>Dias</p>
+                </div>
+                <div class="time-unit">
+                    <span id="hours">00</span>
+                    <p>Horas</p>
+                </div>
+                <div class="time-unit">
+                    <span id="minutes">00</span>
+                    <p>Minutos</p>
+                </div>
+                <div class="time-unit secondary">
+                    <span id="seconds">00</span>
+                    <p>Segundos</p>
+                </div>
+            </div>
+            
+            <div class="countdown-decoration">
+                <div class="line"></div>
+                <div class="dot"></div>
+                <div class="line"></div>
+            </div>
+            
+            <p style="margin-top: 30px; font-size: 14px; color: #999; font-style: italic;">
+                « O amor é paciente, o amor é bondoso... »
+            </p>
         </div>
     </section>
 
+    <!-- Mural de Mensagens -->
     <section class="slide bg-cream">
         <h2 class="section-title">Mural de Mensagens</h2>
+        <p class="subtitle-mural">Deixe um carinho especial para os noivos</p>
         <div class="form-container">
-            <input type="text" id="msg-name" placeholder="Seu Nome">
-            <textarea id="msg-text" placeholder="Deixe seu carinho aqui..." class="modern-textarea"></textarea>
-            <button class="btn-primary" onclick="enviarMensagem()">Publicar no Mural</button>
+            <input type="text" id="msg-name" placeholder="Seu Nome" class="modern-input">
+            <textarea id="msg-text" placeholder="Escreva aqui a sua mensagem de carinho..." class="modern-textarea"></textarea>
+            <button class="btn-primary" onclick="enviarMensagem()">💝 Publicar no Mural</button>
         </div>
         <div id="mural-exibicao" class="mural-lista"></div>
     </section>
 
+    <!-- Lista de Presentes (COM BOTÃO PARA MOSTRAR/ESCONDER) -->
     <section class="slide">
         <h2 class="section-title">Lista de Presentes</h2>
-        <button id="btn-toggle-lista" class="btn-primary" onclick="mostrarLista()">Ver Lista de Mimos</button>
-        <div id="container-lista" class="hidden-list">
+        <p class="subtitle-mural">Escolha um mimo da nossa lista e presenteie-nos com o seu carinho</p>
+        
+        <!-- Botão para mostrar/esconder a lista -->
+        <button id="btnMostrarLista" class="btn-primary" onclick="toggleListaPresentes()">
+            🎁 Ver Lista de Presentes
+        </button>
+        
+        <!-- Container da lista (inicialmente escondido) -->
+        <div id="container-lista-presentes" style="display: none; width: 100%; margin-top: 30px;">
             <div id="presentes-lista" class="gift-grid"></div>
         </div>
     </section>
 
+    <!-- Modal para Presentes -->
     <div id="modal-reserva" class="modal">
         <div class="modal-content">
+            <span class="modal-close" onclick="fecharModal()">&times;</span>
             <h3 id="nome-presente-modal" class="modal-gift-name"></h3>
             <p id="valor-presente-modal" class="price-highlight"></p>
-            <input type="text" id="donor-name" placeholder="Seu Nome Completo">
-            <input type="text" id="donor-phone" placeholder="Seu Telefone (WhatsApp)">
-            <button class="btn-confirm" onclick="confirmarReserva()">Confirmar e Enviar para Loja</button>
-            <button class="btn-cancel" onclick="fecharModal()">Voltar</button>
+            <div class="modal-form">
+                <input type="text" id="donor-name" placeholder="Seu Nome Completo *" required>
+                <input type="tel" id="donor-phone" placeholder="Seu Telefone (WhatsApp) *" required>
+                <button class="btn-confirm" onclick="confirmarReserva()">✅ Confirmar e Reservar Presente</button>
+                <button class="btn-cancel" onclick="fecharModal()">Voltar</button>
+            </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Com amor,</p>
+        <p class="footer-names">Karen & Neques</p>
+        <p class="footer-date">27.11.2026</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
