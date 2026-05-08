@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karen & Neques | Casamento 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;1,700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="opening-overlay">
+        <div class="envelope-wrapper">
+            <div class="wax-seal" onclick="unlockWedding()">
+                <span class="seal-initials">K&N</span>
+            </div>
+            <p class="tap-text">Toque no selo para abrir</p>
+        </div>
+    </div>
+
+    <audio id="wedding-song" loop>
+        <source src="sua-musica.mp3" type="audio/mpeg">
+    </audio>
+
+    <section class="slide hero-slide">
+        <div class="hero-content">
+            <p class="subtitle">VAMOS CASAR</p>
+            <h1 class="main-names">Karen & Neques</h1>
+            <div class="gold-divider"></div>
+            <p class="date-hero">27 DE NOVEMBRO DE 2026</p>
+        </div>
+    </section>
+
+    <section class="slide bg-cream">
+        <div class="story-container">
+            <div class="story-foto-wrapper">
+                <img src="Karen.jpeg" alt="Os Noivos" class="story-foto">
+            </div>
+            <div class="story-text-wrapper">
+                <h2 class="great-vibes-title">Nossa História</h2>
+                <div class="gold-divider" style="margin: 15px auto;"></div>
+                <p>Aqui podes descrever a vossa trajetória. Um momento especial que queiram partilhar com os convidados.</p>
+                <br>
+                
+            </div>
+        </div>
+    </section>
+
+    <div class="story-text-wrapper">
+    <h2 class="great-vibes-title">Nossa História</h2>
+    <p>Aqui podes descrever a vossa trajetória...</p>
+    <a href="https://wa.me/258827142762" target="_blank" class="btn-whatsapp">
+        CONFIRMAR PRESENÇA VIA WHATSAPP
+    </a>
+</div>
+
+    <section class="slide">
+        <h2 class="section-title">Cerimónia Religiosa</h2>
+        <div class="info-grid">
+            <div class="info-image"><img src="igreja.jpg"></div>
+            <div class="info-details">
+                <h3>Catedral de Maputo</h3>
+                <p class="time-info">🕒 15:30 Horas</p>
+                <p>Início da nossa união perante Deus.</p>
+                <a href="URL_MAPS_AQUI" target="_blank" class="map-link">Ver Localização</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide bg-cream">
+        <h2 class="section-title">Cerimónia Civil & Festa</h2>
+        <div class="info-grid reverse">
+            <div class="info-details">
+                <h3>Polana Serena Hotel</h3>
+                <p class="time-info">🕒 18:30 Horas</p>
+                <p>Jantar e celebração no Salão Nobre.</p>
+                <a href="URL_MAPS_AQUI" target="_blank" class="map-link">Ver Localização</a>
+            </div>
+            <div class="info-image"><img src="festa.jpg"></div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="section-title">A Contagem Decrescente</h2>
+        <div id="countdown-timer">
+            <div class="time-unit"><span id="days">00</span><p>Dias</p></div>
+            <div class="time-unit"><span id="hours">00</span><p>Horas</p></div>
+            <div class="time-unit"><span id="minutes">00</span><p>Minutos</p></div>
+            <div class="time-unit secondary"><span id="seconds">00</span><p>Segundos</p></div>
+        </div>
+    </section>
+
+    <section class="slide bg-cream">
+        <h2 class="section-title">Mural de Mensagens</h2>
+        <div class="form-container">
+            <input type="text" id="msg-name" placeholder="Seu Nome">
+            <textarea id="msg-text" placeholder="Deixe seu carinho aqui..." class="modern-textarea"></textarea>
+            <button class="btn-primary" onclick="enviarMensagem()">Publicar no Mural</button>
+        </div>
+        <div id="mural-exibicao" class="mural-lista"></div>
+    </section>
+
+    <section class="slide">
+        <h2 class="section-title">Lista de Presentes</h2>
+        <button id="btn-toggle-lista" class="btn-primary" onclick="mostrarLista()">Ver Lista de Mimos</button>
+        <div id="container-lista" class="hidden-list">
+            <div id="presentes-lista" class="gift-grid"></div>
+        </div>
+    </section>
+
+    <div id="modal-reserva" class="modal">
+        <div class="modal-content">
+            <h3 id="nome-presente-modal" class="modal-gift-name"></h3>
+            <p id="valor-presente-modal" class="price-highlight"></p>
+            <input type="text" id="donor-name" placeholder="Seu Nome Completo">
+            <input type="text" id="donor-phone" placeholder="Seu Telefone (WhatsApp)">
+            <button class="btn-confirm" onclick="confirmarReserva()">Confirmar e Enviar para Loja</button>
+            <button class="btn-cancel" onclick="fecharModal()">Voltar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

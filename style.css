@@ -1,0 +1,114 @@
+/* --- CONFIGURAÇÕES GERAIS E VARIÁREIS --- */
+:root {
+    --gold: #D4AF37;
+    --rose: #E2B4BD;
+    --dark: #4A4A4A;
+    --cream: #FDFBF9;
+    --white: #FFFFFF;
+    --success: #25D366;
+}
+
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+body { 
+    font-family: 'Montserrat', sans-serif; 
+    color: var(--dark); 
+    background-color: var(--white);
+    overflow-x: hidden; 
+}
+
+/* --- AJUSTE DE ESPAÇOS E SEÇÕES --- */
+.slide {
+    min-height: auto; /* Remove o vácuo de 100vh se o conteúdo for pequeno */
+    padding: 60px 20px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-cream { background: var(--cream); }
+
+/* --- ABERTURA (ENVELOPE) --- */
+#opening-overlay {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: var(--rose); z-index: 10000; display: flex; align-items: center; justify-content: center;
+    transition: transform 1.2s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.wax-seal {
+    width: 150px; height: 150px; background: #9B2226; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3); cursor: pointer; border: 4px solid #801418;
+}
+
+/* --- TÍTULOS E TEXTOS --- */
+.main-names { font-family: 'Great Vibes', cursive; font-size: clamp(50px, 8vw, 90px); color: var(--gold); }
+.section-title { font-family: 'Cinzel'; font-size: 24px; color: var(--gold); margin-bottom: 30px; letter-spacing: 3px; }
+.gold-divider { height: 2px; width: 60px; background: var(--gold); margin: 15px auto; }
+
+/* --- FOTOS DOS LOCAIS (IGREJA E SALÃO) --- */
+/* Resolvemos aqui o tamanho ideal para ambas as fotos */
+.info-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 30px; 
+    width: 100%; 
+    align-items: center; 
+    margin-top: 20px;
+}
+
+.info-grid.reverse { direction: rtl; }
+.info-grid.reverse .info-details { direction: ltr; }
+
+.info-image img { 
+    width: 100%; 
+    max-width: 550px; /* Limite para a foto da igreja não ocupar tudo */
+    height: 350px;    /* Altura fixa equilibrada para igreja e salão */
+    object-fit: cover; 
+    border: 1px solid var(--rose); 
+    padding: 8px; 
+    background: white;
+    border-radius: 4px;
+}
+
+/* --- FOTO DOS NOIVOS (HISTÓRIA) --- */
+.story-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    width: 100%;
+}
+
+.story-foto {
+    width: 100%;
+    max-width: 450px;
+    height: 500px; /* Altura elegante para o PC */
+    object-fit: cover;
+    border: 1px solid var(--rose);
+    padding: 10px;
+    background: white;
+}
+
+/* --- MURAL DE MENSAGENS --- */
+.form-container { width: 100%; max-width: 500px; margin-bottom: 30px; }
+
+.modern-textarea { 
+    width: 100%; height: 80px; padding: 12px; margin: 10px 0; 
+    border: 1px solid var(--rose); font-family: 'Montserrat';
+    resize: none;
+}
+
+.mural-lista { 
+    width: 100%; max-width: 600px; 
+    display: flex; flex-direction: column; gap: 15px; 
+}
+
+.msg-card { 
+    background: white; padding: 15px; border-left: 5
