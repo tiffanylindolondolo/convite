@@ -10,18 +10,27 @@
 </head>
 <body>
 
-    <!-- ABERTURA COM SELO (MANTIDO) -->
+    <!-- ABERTURA COM SELO - MAIS CLÁSSICA E HUMANIZADA -->
     <div id="opening-overlay">
-        <div class="envelope-container">
-            <div class="envelope">
-                <div class="envelope-flap"></div>
-                <div class="envelope-body">
-                    <div class="wax-seal" onclick="unlockWedding()">
-                        <span class="seal-initials">K&nbsp;&nbsp;N</span>
-                    </div>
+        <div class="invite-card">
+            <div class="invite-pattern-top"></div>
+            <div class="invite-inner">
+                <div class="invite-decoration">˜”*°•.˜”*°•</div>
+                <div class="invite-title">COM ALEGRIA CONVIDAMOS</div>
+                <div class="invite-names">Karen & Neques</div>
+                <div class="invite-divider"></div>
+                <div class="invite-date">27 de Novembro de 2026</div>
+                <div class="invite-message">
+                    “O amor constrói-se com pequenos gestos,<br>
+                    com o silêncio que se entende e a palavra que acolhe.<br>
+                    É com imensa felicidade que abrimos este convite<br>
+                    e partilhamos convosco o nosso compromisso.”
                 </div>
+                <div class="wax-seal-new" id="openInviteBtn">
+                    <span class="seal-initials-new">K&nbsp;&nbsp;N</span>
+                </div>
+                <p class="tap-hint">✧ toque no lacre para abrir ✧</p>
             </div>
-            <p class="tap-text">Toque no selo para abrir o convite</p>
         </div>
     </div>
 
@@ -122,19 +131,18 @@
             </div>
         </section>
 
-        <!-- Lista de Presentes / Lua de Mel -->
+        <!-- Lista de Presentes + Lua de Mel -->
         <section class="gift-section">
-            <h2 class="section-title">Lista de Presentes</h2>
             <div class="gift-container">
+                <!-- Lista Tradicional -->
                 <div class="gift-store">
                     <i class="fas fa-store"></i>
-                    <h3>Lista Tradicional</h3>
-                    <p>Nossa lista de presentes está disponível na <strong>Casa das Loiças</strong> em nome de Karen e Neques.</p>
-                    <button class="btn-gift" onclick="mostrarListaPresentes()">
-                        <i class="fas fa-gift"></i> Ver Lista de Presentes
-                    </button>
+                    <h3>Lista de Presentes</h3>
+                    <p>A nossa lista de presentes encontra-se disponível na <strong>Casa das Loiças</strong> em nome de <strong>Karen e Neques</strong>.</p>
+                    <p class="gift-note-simple">✨ A vossa presença e carinho são os maiores presentes ✨</p>
                 </div>
                 
+                <!-- Operação Lua de Mel -->
                 <div class="gift-honeymoon">
                     <i class="fas fa-umbrella-beach"></i>
                     <h3>Operação Lua de Mel</h3>
@@ -176,7 +184,7 @@
                 <div class="time-unit"><span id="days">00</span><p>Dias</p></div>
                 <div class="time-unit"><span id="hours">00</span><p>Horas</p></div>
                 <div class="time-unit"><span id="minutes">00</span><p>Minutos</p></div>
-                <div class="time-unit secondary"><span id="seconds">00</span><p>Segundos</p></div>
+                <div class="time-unit"><span id="seconds">00</span><p>Segundos</p></div>
             </div>
         </section>
 
@@ -206,38 +214,47 @@
         </footer>
     </main>
 
-    <!-- Modal para Lista de Presentes -->
-    <div id="modal-lista" class="modal">
-        <div class="modal-content modal-large">
-            <span class="modal-close" onclick="fecharModalLista()">&times;</span>
-            <h3>🎁 Presentes Disponíveis</h3>
-            <p style="margin-bottom: 20px; color: #666;">Escolha um presente e nos ajude a construir nosso lar</p>
-            <div id="presentes-lista" class="gift-grid-modal"></div>
-            <button class="btn-cancel" onclick="fecharModalLista()">Fechar</button>
-        </div>
-    </div>
-
-    <!-- Modal para Contribuição (Dados Bancários) -->
+    <!-- Modal para Contribuição (Dados Bancários, MPESA e EMOLA) -->
     <div id="modal-contribuicao" class="modal">
         <div class="modal-content">
             <span class="modal-close" onclick="fecharModalContribuicao()">&times;</span>
             <i class="fas fa-heart modal-icon"></i>
             <h3>Contribuir para a Lua de Mel</h3>
             <p>Qualquer valor é bem-vindo e será usado para tornar nossa lua de mel ainda mais especial!</p>
+            
+            <!-- Dados Bancários -->
             <div class="bank-details">
+                <h4><i class="fas fa-university"></i> Transferência Bancária</h4>
                 <p><strong>🏦 Banco:</strong> Banco de Moçambique</p>
-                <p><strong>📌 Nome:</strong> Karen & Neques</p>
+                <p><strong>📌 Nome:</strong> Karen Silva & Neques Macamo</p>
                 <p><strong>🔢 IBAN:</strong> MZ59 0001 0000 1234 5678 9012 3</p>
-                <p><strong>📱 NUI:</strong> 123456789</p>
+                <p><strong>📋 Número de Conta:</strong> 12345678901</p>
             </div>
-            <div class="pix-area">
-                <p><strong>📱 Chave PIX (MPESA):</strong></p>
-                <div class="pix-key" onclick="copiarPix()">
-                    <span id="pix-chave">258827142762</span>
+            
+            <!-- MPESA -->
+            <div class="bank-details">
+                <h4><i class="fas fa-mobile-alt"></i> MPESA</h4>
+                <p><strong>📱 Número MPESA:</strong> 84 123 4567</p>
+                <p><strong>📌 Nome do Titular:</strong> Karen Silva</p>
+                <div class="pix-key" onclick="copiarMpesa()">
+                    <span id="mpesa-chave">841234567</span>
                     <i class="fas fa-copy"></i>
                 </div>
-                <p class="pix-note">Clique na chave acima para copiar</p>
+                <p class="pix-note">Clique no número acima para copiar</p>
             </div>
+            
+            <!-- EMOLA -->
+            <div class="bank-details">
+                <h4><i class="fas fa-money-bill-wave"></i> EMOLA</h4>
+                <p><strong>📱 Número EMOLA:</strong> 87 654 3210</p>
+                <p><strong>📌 Nome do Titular:</strong> Neques Macamo</p>
+                <div class="pix-key" onclick="copiarEmola()">
+                    <span id="emola-chave">876543210</span>
+                    <i class="fas fa-copy"></i>
+                </div>
+                <p class="pix-note">Clique no número acima para copiar</p>
+            </div>
+            
             <button class="btn-confirm" onclick="enviarComprovativo()">
                 <i class="fab fa-whatsapp"></i> Enviar Comprovativo via WhatsApp
             </button>
@@ -246,51 +263,5 @@
     </div>
 
     <script src="script.js"></script>
-    <!-- SCRIPT DE FALLBACK PARA GARANTIR QUE O CONVITE ABRE -->
-<script>
-    // Forçar que a função esteja disponível de várias formas
-    (function() {
-        // Aguardar o DOM carregar completamente
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log("DOM carregado - procurando selo...");
-            
-            // Tentar encontrar o selo de várias formas
-            var selo = document.querySelector('.wax-seal');
-            var envelope = document.querySelector('.envelope');
-            var envelopeContainer = document.querySelector('.envelope-container');
-            
-            // Função que abre o convite
-            function forcarAbertura() {
-                console.log("Clique detectado - abrindo convite");
-                var overlay = document.getElementById('opening-overlay');
-                var mainContent = document.getElementById('main-content');
-                
-                if (overlay) {
-                    overlay.style.transition = "opacity 1s ease-in-out";
-                    overlay.style.opacity = "0";
-                    setTimeout(function() {
-                        overlay.style.display = "none";
-                        if (mainContent) mainContent.style.display = "block";
-                    }, 1000);
-                }
-                
-                var song = document.getElementById('wedding-song');
-                if (song) song.play().catch(function(e) {});
-            }
-            
-            // Adicionar eventos a todos os elementos clicáveis
-            if (selo) {
-                selo.addEventListener('click', forcarAbertura);
-                console.log("Evento adicionado ao selo");
-            }
-            if (envelope) {
-                envelope.addEventListener('click', forcarAbertura);
-            }
-            if (envelopeContainer) {
-                envelopeContainer.addEventListener('click', forcarAbertura);
-            }
-        });
-    })();
-</script>
 </body>
 </html>
