@@ -1,4 +1,4 @@
-/* --- VARIÁVEIS --- */
+/* VARIÁVEIS */
 :root {
     --gold: #C9A96E;
     --gold-dark: #A68647;
@@ -25,138 +25,98 @@ body {
     overflow-x: hidden;
 }
 
-/* --- ABERTURA COM SELO - MAIS HUMANIZADA E CLÁSSICA --- */
+/* ABERTURA */
 #opening-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: #FCF9F4;
+    background: linear-gradient(135deg, #FCF9F4 0%, #F5EDE4 100%);
     z-index: 10000;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.8s ease-in-out;
     cursor: pointer;
 }
 
-.invite-card {
-    position: relative;
-    max-width: 520px;
-    width: 90%;
+.invite-preview {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.preview-card {
     background: #FFFFFF;
-    border-radius: 4px;
-    box-shadow: 0 30px 50px rgba(0,0,0,0.15), 0 0 0 1px rgba(201,169,110,0.2);
-    overflow: hidden;
-    transition: transform 0.4s ease;
-}
-
-.invite-card:hover {
-    transform: translateY(-5px);
-}
-
-.invite-pattern-top {
-    height: 6px;
-    background: linear-gradient(90deg, var(--gold), var(--rose), var(--gold));
-}
-
-.invite-inner {
-    padding: 45px 35px 50px;
+    border-radius: 16px;
+    padding: 60px 40px;
     text-align: center;
-    background: #FFFFFF;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    border: 1px solid rgba(201,169,110,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.invite-decoration {
-    font-family: 'Great Vibes', cursive;
-    font-size: 22px;
+.preview-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 35px 60px rgba(0,0,0,0.2);
+}
+
+.preview-flower {
+    font-size: 40px;
     color: var(--gold);
-    letter-spacing: 4px;
     margin-bottom: 20px;
-    font-weight: normal;
 }
 
-.invite-title {
+.preview-title {
     font-family: 'Cinzel', serif;
-    font-size: 11px;
-    letter-spacing: 5px;
+    font-size: 12px;
+    letter-spacing: 6px;
     color: var(--gold-dark);
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
-.invite-names {
+.preview-names {
     font-family: 'Great Vibes', cursive;
-    font-size: 56px;
+    font-size: 48px;
     color: var(--dark);
-    margin: 15px 0;
-    letter-spacing: 2px;
+    margin: 20px 0;
 }
 
-.invite-divider {
-    width: 60px;
-    height: 1px;
-    background: var(--gold);
-    margin: 25px auto;
-}
-
-.invite-date {
+.preview-date {
     font-family: 'Cinzel', serif;
-    font-size: 14px;
-    color: #7A6A5C;
-    letter-spacing: 2px;
-    margin-bottom: 30px;
-}
-
-.invite-message {
-    font-family: 'Playfair Display', serif;
-    font-size: 14px;
-    color: #5E5548;
-    line-height: 1.7;
-    margin: 25px 0;
-    font-style: italic;
-}
-
-.wax-seal-new {
-    width: 70px;
-    height: 70px;
-    background: #8B3C3A;
-    border-radius: 50%;
-    margin: 15px auto 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    border: 2px solid #C97A5E;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.wax-seal-new:hover {
-    transform: scale(1.03);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
-}
-
-.seal-initials-new {
-    font-family: 'Great Vibes', cursive;
-    font-size: 28px;
-    color: #F3D382;
+    font-size: 16px;
     letter-spacing: 3px;
+    color: #7A6A5C;
+    margin-bottom: 40px;
 }
 
-.tap-hint {
-    margin-top: 20px;
-    font-size: 11px;
-    letter-spacing: 2px;
-    color: #B0A088;
+.preview-message {
     font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    color: #B0A088;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
 }
 
-/* --- MAIN CONTENT --- */
+.preview-icon {
+    color: var(--gold);
+    font-size: 24px;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+}
+
+/* MAIN CONTENT */
 #main-content {
     display: none;
 }
 
-/* --- HERO --- */
+/* HERO */
 .hero {
     position: relative;
     height: 100vh;
@@ -230,12 +190,7 @@ body {
     opacity: 0.8;
 }
 
-@keyframes bounce {
-    0%, 100% { transform: translateY(0) translateX(-50%); }
-    50% { transform: translateY(10px) translateX(-50%); }
-}
-
-/* --- VERSE SECTION --- */
+/* VERSE */
 .verse-section {
     padding: 90px 20px;
     background: linear-gradient(135deg, var(--rose) 0%, var(--rose-dark) 100%);
@@ -257,7 +212,6 @@ body {
     max-width: 800px;
     margin: 0 auto 20px;
     line-height: 1.5;
-    font-weight: 400;
 }
 
 .verse-ref {
@@ -282,7 +236,7 @@ body {
     opacity: 0.9;
 }
 
-/* --- STORY SECTION --- */
+/* STORY */
 .story-section {
     padding: 90px 20px;
     background: var(--white);
@@ -331,21 +285,7 @@ body {
     font-size: 15px;
 }
 
-@media (max-width: 768px) {
-    .story-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    .story-foto {
-        max-width: 100%;
-        min-height: 300px;
-    }
-    .great-vibes-title {
-        font-size: 42px;
-    }
-}
-
-/* --- INVITATION SECTION --- */
+/* INVITATION */
 .invitation-section {
     background: var(--light);
     padding: 90px 20px;
@@ -405,7 +345,6 @@ body {
     font-family: 'Cinzel', serif;
     font-size: 20px;
     margin-bottom: 15px;
-    color: var(--dark);
 }
 
 .agenda-date {
@@ -461,7 +400,7 @@ body {
     margin-top: 10px;
 }
 
-/* --- RSVP SECTION --- */
+/* RSVP */
 .rsvp-section {
     padding: 90px 20px;
     background: linear-gradient(135deg, var(--rose) 0%, var(--rose-dark) 100%);
@@ -508,245 +447,12 @@ body {
     opacity: 0.7;
 }
 
-/* --- GIFT SECTION - SIMPLIFICADA --- */
+/* GIFT */
 .gift-section {
     padding: 90px 20px;
     background: var(--white);
 }
 
-.gift-simple-container {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    background: var(--light);
-    border-radius: 24px;
-    padding: 50px 35px;
-    box-shadow: var(--shadow-light);
-    border: 1px solid rgba(201,169,110,0.3);
-}
-
-.gift-simple-container i {
-    font-size: 52px;
-    color: var(--gold);
-    margin-bottom: 25px;
-}
-
-.gift-simple-container h3 {
-    font-family: 'Cinzel', serif;
-    font-size: 26px;
-    margin-bottom: 20px;
-    color: var(--dark);
-}
-
-.gift-store-message {
-    font-size: 18px;
-    line-height: 1.6;
-    margin: 20px 0;
-    color: #5E5548;
-}
-
-.gift-store-name {
-    font-family: 'Great Vibes', cursive;
-    font-size: 34px;
-    color: var(--gold-dark);
-    margin: 20px 0 10px;
-}
-
-.gift-note {
-    margin-top: 30px;
-    font-size: 13px;
-    color: #A28E7A;
-    font-style: italic;
-}
-
-/* --- COUNTDOWN --- */
-.countdown-section {
-    padding: 90px 20px;
-    background: linear-gradient(135deg, var(--dark) 0%, #23201E 100%);
-    text-align: center;
-    color: white;
-}
-
-.countdown-section .section-title {
-    color: var(--gold);
-}
-
-.countdown-subtitle {
-    font-family: 'Great Vibes', cursive;
-    font-size: 26px;
-    margin-bottom: 15px;
-    font-weight: normal;
-}
-
-.countdown-date {
-    font-size: 14px;
-    letter-spacing: 2px;
-    margin-bottom: 45px;
-    opacity: 0.7;
-}
-
-#countdown-timer {
-    display: flex;
-    justify-content: center;
-    gap: 35px;
-    flex-wrap: wrap;
-}
-
-.time-unit {
-    text-align: center;
-    min-width: 90px;
-    padding: 15px;
-}
-
-.time-unit span {
-    font-size: 52px;
-    font-weight: 300;
-    font-family: 'Cinzel', serif;
-    display: block;
-}
-
-.time-unit p {
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-top: 12px;
-    opacity: 0.7;
-}
-
-/* --- MESSAGES SECTION --- */
-.messages-section {
-    padding: 90px 20px;
-    background: var(--light);
-    text-align: center;
-}
-
-.messages-subtitle {
-    max-width: 600px;
-    margin: 0 auto 45px;
-    color: #6A5A4E;
-}
-
-.message-form {
-    max-width: 520px;
-    margin: 0 auto 45px;
-}
-
-.modern-input, .modern-textarea {
-    width: 100%;
-    padding: 14px 18px;
-    margin: 12px 0;
-    border: 1px solid #E0D6CE;
-    border-radius: 40px;
-    font-family: 'Montserrat', sans-serif;
-    background: white;
-    transition: all 0.2s;
-}
-
-.modern-input:focus, .modern-textarea:focus {
-    outline: none;
-    border-color: var(--gold);
-    box-shadow: 0 0 0 2px rgba(201,169,110,0.2);
-}
-
-.modern-textarea {
-    border-radius: 24px;
-    height: 110px;
-    resize: vertical;
-}
-
-.btn-send {
-    background: var(--gold);
-    border: none;
-    padding: 12px 35px;
-    border-radius: 40px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s;
-    color: var(--dark);
-}
-
-.btn-send:hover {
-    background: var(--gold-dark);
-    color: white;
-}
-
-.mural-lista {
-    max-width: 700px;
-    margin: 0 auto;
-    max-height: 520px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-.msg-card {
-    background: var(--white);
-    padding: 22px;
-    border-radius: 20px;
-    text-align: left;
-    box-shadow: var(--shadow-light);
-    border-left: 4px solid var(--gold);
-}
-
-.auto-update-text {
-    font-size: 11px;
-    color: #B0A088;
-    margin-top: 35px;
-}
-
-/* --- FOOTER --- */
-.footer {
-    background: var(--dark);
-    color: #DDD;
-    text-align: center;
-    padding: 60px 20px;
-}
-
-.footer i {
-    font-size: 34px;
-    color: var(--gold);
-    margin-bottom: 20px;
-}
-
-.footer-names {
-    font-family: 'Great Vibes', cursive;
-    font-size: 36px;
-    margin: 12px 0;
-    color: white;
-}
-
-.footer-thanks {
-    font-size: 13px;
-    opacity: 0.7;
-    margin-top: 20px;
-}
-
-/* --- RESPONSIVE --- */
-@media (max-width: 768px) {
-    .agenda-grid {
-        grid-template-columns: 1fr;
-    }
-    .time-unit {
-        min-width: 70px;
-        padding: 8px;
-    }
-    .time-unit span {
-        font-size: 34px;
-    }
-    .invite-inner {
-        padding: 30px 20px;
-    }
-    .invite-names {
-        font-size: 42px;
-    }
-    .gift-simple-container {
-        padding: 35px 20px;
-    }
-}
-/* Adicione ao final do style.css */
-
-/* GIFT SECTION - Duas colunas */
 .gift-container {
     max-width: 1100px;
     margin: 0 auto;
@@ -850,6 +556,169 @@ body {
     color: var(--gold);
 }
 
+/* COUNTDOWN */
+.countdown-section {
+    padding: 90px 20px;
+    background: linear-gradient(135deg, var(--dark) 0%, #23201E 100%);
+    text-align: center;
+    color: white;
+}
+
+.countdown-section .section-title {
+    color: var(--gold);
+}
+
+.countdown-subtitle {
+    font-family: 'Great Vibes', cursive;
+    font-size: 26px;
+    margin-bottom: 15px;
+    font-weight: normal;
+}
+
+.countdown-date {
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 45px;
+    opacity: 0.7;
+}
+
+#countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: wrap;
+}
+
+.time-unit {
+    text-align: center;
+    min-width: 90px;
+    padding: 15px;
+}
+
+.time-unit span {
+    font-size: 52px;
+    font-weight: 300;
+    font-family: 'Cinzel', serif;
+    display: block;
+}
+
+.time-unit p {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 12px;
+    opacity: 0.7;
+}
+
+/* MESSAGES */
+.messages-section {
+    padding: 90px 20px;
+    background: var(--light);
+    text-align: center;
+}
+
+.messages-subtitle {
+    max-width: 600px;
+    margin: 0 auto 45px;
+    color: #6A5A4E;
+}
+
+.message-form {
+    max-width: 520px;
+    margin: 0 auto 45px;
+}
+
+.modern-input, .modern-textarea {
+    width: 100%;
+    padding: 14px 18px;
+    margin: 12px 0;
+    border: 1px solid #E0D6CE;
+    border-radius: 40px;
+    font-family: 'Montserrat', sans-serif;
+    background: white;
+    transition: all 0.2s;
+}
+
+.modern-input:focus, .modern-textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 2px rgba(201,169,110,0.2);
+}
+
+.modern-textarea {
+    border-radius: 24px;
+    height: 110px;
+    resize: vertical;
+}
+
+.btn-send {
+    background: var(--gold);
+    border: none;
+    padding: 12px 35px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    color: var(--dark);
+}
+
+.btn-send:hover {
+    background: var(--gold-dark);
+    color: white;
+}
+
+.mural-lista {
+    max-width: 700px;
+    margin: 0 auto;
+    max-height: 520px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.msg-card {
+    background: var(--white);
+    padding: 22px;
+    border-radius: 20px;
+    text-align: left;
+    box-shadow: var(--shadow-light);
+    border-left: 4px solid var(--gold);
+}
+
+.auto-update-text {
+    font-size: 11px;
+    color: #B0A088;
+    margin-top: 35px;
+}
+
+/* FOOTER */
+.footer {
+    background: var(--dark);
+    color: #DDD;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.footer i {
+    font-size: 34px;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.footer-names {
+    font-family: 'Great Vibes', cursive;
+    font-size: 36px;
+    margin: 12px 0;
+    color: white;
+}
+
+.footer-thanks {
+    font-size: 13px;
+    opacity: 0.7;
+    margin-top: 20px;
+}
+
 /* MODAL */
 .modal {
     display: none;
@@ -923,12 +792,6 @@ body {
     margin-top: 10px;
 }
 
-.pix-note {
-    font-size: 11px;
-    color: #888;
-    margin-top: 8px;
-}
-
 .btn-confirm, .btn-cancel {
     width: 100%;
     padding: 12px;
@@ -949,12 +812,40 @@ body {
     color: var(--dark);
 }
 
+/* RESPONSIVE */
 @media (max-width: 768px) {
+    .story-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .story-foto {
+        max-width: 100%;
+        min-height: 300px;
+    }
+    .great-vibes-title {
+        font-size: 42px;
+    }
+    .agenda-grid {
+        grid-template-columns: 1fr;
+    }
     .gift-container {
         grid-template-columns: 1fr;
     }
     .missions-grid {
         grid-template-columns: 1fr;
+    }
+    .time-unit {
+        min-width: 70px;
+        padding: 8px;
+    }
+    .time-unit span {
+        font-size: 34px;
+    }
+    .preview-card {
+        padding: 40px 25px;
+    }
+    .preview-names {
+        font-size: 36px;
     }
     .modal-content {
         padding: 25px;

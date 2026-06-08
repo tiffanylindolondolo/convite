@@ -10,26 +10,18 @@
 </head>
 <body>
 
-    <!-- ABERTURA COM SELO - MAIS CLÁSSICA E HUMANIZADA -->
+    <!-- ABERTURA DO CONVITE -->
     <div id="opening-overlay">
-        <div class="invite-card">
-            <div class="invite-pattern-top"></div>
-            <div class="invite-inner">
-                <div class="invite-decoration">˜”*°•.˜”*°•</div>
-                <div class="invite-title">COM ALEGRIA CONVIDAMOS</div>
-                <div class="invite-names">Karen & Neques</div>
-                <div class="invite-divider"></div>
-                <div class="invite-date">27 de Novembro de 2026</div>
-                <div class="invite-message">
-                    “O amor constrói-se com pequenos gestos,<br>
-                    com o silêncio que se entende e a palavra que acolhe.<br>
-                    É com imensa felicidade que abrimos este convite<br>
-                    e partilhamos convosco o nosso compromisso.”
+        <div class="invite-preview" id="invitePreview">
+            <div class="preview-card">
+                <div class="preview-flower">✧</div>
+                <div class="preview-title">CONVITE DE CASAMENTO</div>
+                <div class="preview-names">Karen & Neques</div>
+                <div class="preview-date">27 • 11 • 2026</div>
+                <div class="preview-message">Toque em qualquer lugar para abrir</div>
+                <div class="preview-icon">
+                    <i class="fas fa-chevron-down"></i>
                 </div>
-                <div class="wax-seal-new" id="openInviteBtn">
-                    <span class="seal-initials-new">K&nbsp;&nbsp;N</span>
-                </div>
-                <p class="tap-hint">✧ toque no lacre para abrir ✧</p>
             </div>
         </div>
     </div>
@@ -39,9 +31,9 @@
     </audio>
 
     <!-- CONTEÚDO PRINCIPAL -->
-    <main id="main-content" style="display: none;">
+    <main id="main-content">
         
-        <!-- Hero Section -->
+        <!-- HERO -->
         <section class="hero">
             <div class="hero-overlay"></div>
             <div class="hero-content">
@@ -55,7 +47,7 @@
             </div>
         </section>
 
-        <!-- Versículo / Elo Perfeito -->
+        <!-- VERSÍCULO -->
         <section class="verse-section">
             <div class="verse-container">
                 <i class="fas fa-cross verse-icon"></i>
@@ -66,7 +58,7 @@
             </div>
         </section>
 
-        <!-- Nossa História -->
+        <!-- NOSSA HISTÓRIA -->
         <section class="story-section">
             <div class="story-container">
                 <div class="story-foto-wrapper">
@@ -82,14 +74,13 @@
             </div>
         </section>
 
-        <!-- Agenda das Cerimónias -->
+        <!-- AGENDA -->
         <section class="invitation-section">
             <div class="invitation-container">
                 <h2 class="section-title">Gostaríamos de convidá-lo(a)</h2>
                 <p class="invitation-text">a comemorar esta data especial connosco. Venha juntar-se a nós e ajudar-nos a celebrar o nosso enlace matrimonial de acordo com a agenda abaixo:</p>
                 
                 <div class="agenda-grid">
-                    <!-- Cerimónia Religiosa -->
                     <div class="agenda-card">
                         <i class="fas fa-church"></i>
                         <h3>Cerimónia Religiosa</h3>
@@ -102,7 +93,6 @@
                         </div>
                     </div>
 
-                    <!-- Cerimónia Civil & Festa -->
                     <div class="agenda-card">
                         <i class="fas fa-glass-cheers"></i>
                         <h3>Cerimónia Civil & Festa</h3>
@@ -118,7 +108,7 @@
             </div>
         </section>
 
-        <!-- Confirmar Presença -->
+        <!-- CONFIRMAR PRESENÇA -->
         <section class="rsvp-section">
             <div class="rsvp-container">
                 <h2 class="section-title">Confirmar Presença</h2>
@@ -131,10 +121,9 @@
             </div>
         </section>
 
-        <!-- Lista de Presentes + Lua de Mel -->
+        <!-- LISTA DE PRESENTES E LUA DE MEL -->
         <section class="gift-section">
             <div class="gift-container">
-                <!-- Lista Tradicional -->
                 <div class="gift-store">
                     <i class="fas fa-store"></i>
                     <h3>Lista de Presentes</h3>
@@ -142,7 +131,6 @@
                     <p class="gift-note-simple">✨ A vossa presença e carinho são os maiores presentes ✨</p>
                 </div>
                 
-                <!-- Operação Lua de Mel -->
                 <div class="gift-honeymoon">
                     <i class="fas fa-umbrella-beach"></i>
                     <h3>Operação Lua de Mel</h3>
@@ -175,7 +163,7 @@
             </div>
         </section>
 
-        <!-- Contagem Decrescente -->
+        <!-- CONTAGEM REGRESSIVA -->
         <section class="countdown-section">
             <h2 class="section-title">Contagem Regressiva</h2>
             <p class="countdown-subtitle">O nosso grande dia está próximo</p>
@@ -188,7 +176,7 @@
             </div>
         </section>
 
-        <!-- Mural de Mensagens -->
+        <!-- MURAL DE MENSAGENS -->
         <section class="messages-section">
             <h2 class="section-title">Mural de Mensagens</h2>
             <p class="messages-subtitle">Palavras especiais de carinho e amor que recebemos de amigos e familiares que compartilharão este momento conosco.</p>
@@ -203,7 +191,7 @@
             <p class="auto-update-text">📝 Cada mensagem é um presente para nós</p>
         </section>
 
-        <!-- Footer -->
+        <!-- FOOTER -->
         <footer class="footer">
             <div class="footer-content">
                 <i class="fas fa-ring"></i>
@@ -214,7 +202,7 @@
         </footer>
     </main>
 
-    <!-- Modal para Contribuição (Dados Bancários, MPESA e EMOLA) -->
+    <!-- MODAL CONTRIBUIÇÃO -->
     <div id="modal-contribuicao" class="modal">
         <div class="modal-content">
             <span class="modal-close" onclick="fecharModalContribuicao()">&times;</span>
@@ -222,7 +210,6 @@
             <h3>Contribuir para a Lua de Mel</h3>
             <p>Qualquer valor é bem-vindo e será usado para tornar nossa lua de mel ainda mais especial!</p>
             
-            <!-- Dados Bancários -->
             <div class="bank-details">
                 <h4><i class="fas fa-university"></i> Transferência Bancária</h4>
                 <p><strong>🏦 Banco:</strong> Banco de Moçambique</p>
@@ -231,28 +218,22 @@
                 <p><strong>📋 Número de Conta:</strong> 12345678901</p>
             </div>
             
-            <!-- MPESA -->
             <div class="bank-details">
                 <h4><i class="fas fa-mobile-alt"></i> MPESA</h4>
                 <p><strong>📱 Número MPESA:</strong> 84 123 4567</p>
-                <p><strong>📌 Nome do Titular:</strong> Karen Silva</p>
                 <div class="pix-key" onclick="copiarMpesa()">
                     <span id="mpesa-chave">841234567</span>
                     <i class="fas fa-copy"></i>
                 </div>
-                <p class="pix-note">Clique no número acima para copiar</p>
             </div>
             
-            <!-- EMOLA -->
             <div class="bank-details">
                 <h4><i class="fas fa-money-bill-wave"></i> EMOLA</h4>
                 <p><strong>📱 Número EMOLA:</strong> 87 654 3210</p>
-                <p><strong>📌 Nome do Titular:</strong> Neques Macamo</p>
                 <div class="pix-key" onclick="copiarEmola()">
                     <span id="emola-chave">876543210</span>
                     <i class="fas fa-copy"></i>
                 </div>
-                <p class="pix-note">Clique no número acima para copiar</p>
             </div>
             
             <button class="btn-confirm" onclick="enviarComprovativo()">

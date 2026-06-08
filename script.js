@@ -1,7 +1,8 @@
 // STORAGE KEY
 const STORAGE_KEY = 'wedding_data_karen_neques_2026';
+let audioElement = null;
 
-// Inicializar dados (apenas mensagens, sem presentes)
+// INICIALIZAR DADOS
 function initData() {
     if (!localStorage.getItem(STORAGE_KEY)) {
         const initialData = {
@@ -14,60 +15,43 @@ function initData() {
     }
 }
 
-let audioElement = null;
-let isMusicPlaying = false;
-
-// Configurar controlo da música - PAUSA ao sair da página
+// CONFIGURAR MÚSICA
 function setupMusicControl() {
     audioElement = document.getElementById('wedding-song');
     if (!audioElement) return;
     
-    // Pausar música quando a página perde visibilidade (sair da aba/página)
     document.addEventListener('visibilitychange', function() {
         if (document.hidden && audioElement && !audioElement.paused) {
             audioElement.pause();
-            isMusicPlaying = false;
-            console.log("Música pausada - saiu da página");
         }
     });
     
-    // Quando a página é descarregada (fechar ou recarregar)
     window.addEventListener('beforeunload', function() {
-        if (audioElement) {
-            audioElement.pause();
-        }
-    });
-    
-    // Opcional: pausar também quando perde foco (alternativa)
-    window.addEventListener('blur', function() {
-        if (audioElement && !audioElement.paused) {
-            audioElement.pause();
-            isMusicPlaying = false;
-        }
+        if (audioElement) audioElement.pause();
     });
 }
 
-// ABRIR CONVITE - função principal
-function unlockWedding() {
+// ABRIR CONVITE
+function abrirConvite() {
     const overlay = document.getElementById('opening-overlay');
     const mainContent = document.getElementById('main-content');
     
     if (overlay) {
-        overlay.style.transition = "opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1)";
+        overlay.style.transition = "opacity 0.8s ease-in-out";
         overlay.style.opacity = "0";
-        setTimeout(() => {
+        
+        setTimeout(function() {
             overlay.style.display = "none";
             if (mainContent) {
                 mainContent.style.display = "block";
                 document.body.style.overflow = "auto";
             }
-        }, 1200);
+        }, 800);
     }
     
-    // Tentar tocar música (pode ser bloqueado pelo navegador)
     if (audioElement) {
-        audioElement.play().catch(e => {
-            console.log("Auto-play bloqueado pelo navegador. O usuário precisa interagir primeiro.");
+        audioElement.play().catch(function(e) {
+            console.log("Auto-play bloqueado:", e);
         });
     }
     
@@ -75,7 +59,7 @@ function unlockWedding() {
     carregarMensagens();
 }
 
-// TOGGLE DETALHES DAS CERIMÓNIAS
+// TOGGLE DETALHES
 function toggleDetails(tipo) {
     const element = document.getElementById(`details-${tipo}`);
     if (element) {
@@ -83,7 +67,7 @@ function toggleDetails(tipo) {
     }
 }
 
-// CARREGAR MENSAGENS DO MURAL
+// CARREGAR MENSAGENS
 function carregarMensagens() {
     const data = JSON.parse(localStorage.getItem(STORAGE_KEY));
     if (!data) return;
@@ -146,11 +130,10 @@ function updateCountdown() {
     }
 }
 
-// Iniciar contagem
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
-// SCROLL SMOOTH PARA HERO
+// SCROLL SMOOTH
 function initScroll() {
     const scrollBtn = document.querySelector('.hero-scroll');
     if (scrollBtn) {
@@ -160,44 +143,7 @@ function initScroll() {
     }
 }
 
-// EVENTOS DE CLIQUE PARA ABERTURA DO CONVITE (fallback)
-function setupOpenEvents() {
-    const openBtn = document.getElementById('openInviteBtn');
-    const overlay = document.getElementById('opening-overlay');
-    
-    if (openBtn) {
-        openBtn.addEventListener('click', unlockWedding);
-    }
-    
-    // Também permitir clicar no overlay inteiro para abrir
-    if (overlay) {
-        overlay.addEventListener('click', function(e) {
-            // Evitar que clique no botão dispare duas vezes
-            if (e.target === openBtn || openBtn.contains(e.target)) {
-                return;
-            }
-            unlockWedding();
-        });
-    }
-}
-
-// INICIALIZAR TUDO QUANDO O DOM CARREGAR
-document.addEventListener('DOMContentLoaded', function() {
-    console.log("DOM carregado - inicializando convite");
-    setupMusicControl();
-    setupOpenEvents();
-    initScroll();
-    initData();
-    carregarMensagens();
-});
-
-// EXPOR FUNÇÕES GLOBAIS PARA USO NO HTML (onclick)
-window.unlockWedding = unlockWedding;
-window.toggleDetails = toggleDetails;
-window.enviarMensagem = enviarMensagem;
-
-// Adicione estas funções ao script.js
-
+// MODAL CONTRIBUIÇÃO
 function mostrarContribuicao() {
     document.getElementById('modal-contribuicao').style.display = 'flex';
 }
@@ -222,7 +168,23 @@ function enviarComprovativo() {
     window.open('https://wa.me/258827142762?text=Olá!%20Acabei%20de%20fazer%20uma%20contribuição%20para%20a%20Lua%20de%20Mel%20de%20Karen%20e%20Neques!%20❤️', '_blank');
 }
 
-// Não esquecer de exportar as funções globais
+// INICIALIZAR
+document.addEventListener('DOMContentLoaded', function() {
+    setupMusicControl();
+    initScroll();
+    initData();
+    carregarMensagens();
+    
+    const overlay = document.getElementById('opening-overlay');
+    if (overlay) {
+        overlay.addEventListener('click', abrirConvite);
+    }
+});
+
+// EXPOR FUNÇÕES GLOBAIS
+window.abrirConvite = abrirConvite;
+window.toggleDetails = toggleDetails;
+window.enviarMensagem = enviarMensagem;
 window.mostrarContribuicao = mostrarContribuicao;
 window.fecharModalContribuicao = fecharModalContribuicao;
 window.copiarMpesa = copiarMpesa;
